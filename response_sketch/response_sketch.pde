@@ -5,7 +5,7 @@ import processing.serial.*;
 Serial myPort;
 
 void setup() {
-  size(800, 600);
+  size(displayWidth, displayHeight);
   background(255);
 
   String danceMat = Serial.list()[1];
@@ -14,14 +14,14 @@ void setup() {
 
   noStroke();
   fill(200);
-  frameRate(60);
 }
 
 void draw() {
   if ( myPort.available() > 0) {  
     String val = myPort.readString();
+    
     if (val != null) { 
-      print(val);
+      print(val.equals("H"));
       
       if (val.equals("H") == true) {
         background(#A0FA3A);
