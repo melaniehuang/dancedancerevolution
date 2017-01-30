@@ -8,7 +8,7 @@ PImage rImage;
 Serial myPort;
 
 void setup() {
-  size(500, 500);
+  size(displayWidth, displayHeight);
   background(255);
 
   String danceMat = Serial.list()[2];
