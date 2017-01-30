@@ -1,17 +1,25 @@
 /*Recieve serial response from Arduino sketch and display arrow on screen*/
 
 import processing.serial.*;
-
+PImage uImage;
+PImage dImage;
+PImage lImage;
+PImage rImage;
 Serial myPort;
 
 void setup() {
-  size(displayWidth, displayHeight);
+  size(500, 500);
   background(255);
 
   String danceMat = Serial.list()[2];
   myPort = new Serial(this, danceMat, 9600);
   myPort.bufferUntil('\n'); 
-
+  
+  uImage = loadImage("up.png");
+  dImage = loadImage("down.png");
+  lImage = loadImage("left.png");
+  rImage = loadImage("right.png");
+  
   noStroke();
   fill(200);
 }
@@ -21,18 +29,23 @@ void draw() {
     String val = myPort.readString();
     
     if (val != null) { 
-      print(val.equals("H1"));
+      println(val);
       
-      if (val.equals("H1") == true) {
-        background(#A0FA3A);
-      } else if (val.equals("L1") == true) {
-        background(0);
-      } else if (val.equals("H2") == true) {
-        background(#FA1E1E);
-      } else if (val.equals("L2") == true) {
-        background(0);
+      if (val.equals("U") == true) {
+        background(#1E2AE8);
+        image(uImage, width/2-100, height/2-100);
+      } else if (val.equals("L") == true) {
+        background(#FF8E1C);
+        image(lImage, width/2-100, height/2-100);
+      } else if (val.equals("R") == true) {
+        background(#FFDA1C);
+        image(rImage, width/2-100, height/2-100);
+      } else if (val.equals("D") == true) {
+        background(#12DE7D);
+        image(dImage, width/2-100, height/2-100);
       } else {
-        print("nothing here");
+        background(0);
     }
   }
+ }
 }
