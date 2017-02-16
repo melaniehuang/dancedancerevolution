@@ -25,27 +25,32 @@ void setup() {
 }
 
 void draw() {
-  if ( myPort.available() > 0) {  
-    String val = myPort.readString();
-    
-    if (val != null) { 
-      println(val);
-      
-      if (val.equals("U") == true) {
-        background(#1E2AE8);
+  if (keyPressed) {
+    if (key == 'w' || key == 'W') {
+      background(#F23F1B);
+      image(uImage, width/2-100, height/2-100);
+    } else if (key == 'd' || key == 'D') {
+      background(#F23F1B);
+      image(rImage, width/2-100, height/2-100);
+    } else if (key == 's' || key == 'S') {
+      background(#F23F1B);
+      image(dImage, width/2-100, height/2-100);
+    } else if (key == 'a' || key == 'A') {
+      background(#F23F1B);
+      image(lImage, width/2-100, height/2-100);
+    } else if (key == CODED) {
+      background(#1AEAFF);
+      if (keyCode == UP) { 
         image(uImage, width/2-100, height/2-100);
-      } else if (val.equals("L") == true) {
-        background(#FF8E1C);
+      } else if (keyCode == LEFT) {
         image(lImage, width/2-100, height/2-100);
-      } else if (val.equals("R") == true) {
-        background(#FFDA1C);
+      } else if (keyCode == RIGHT) {
         image(rImage, width/2-100, height/2-100);
-      } else if (val.equals("D") == true) {
-        background(#12DE7D);
+      } else if (keyCode == DOWN) {
         image(dImage, width/2-100, height/2-100);
-      } else {
-        background(0);
+      }
+    } else {
+      background(0);
     }
   }
- }
 }

@@ -27,28 +27,28 @@ void loop() {
   
   if (buttonState0 == HIGH) {
     digitalWrite(ledPin, HIGH);
-    Serial.write("U");
+    Serial.write("D");
   } else if (buttonState0 == LOW) {
     digitalWrite(ledPin, LOW);
   }
   
   if (buttonState1 == HIGH) {
     digitalWrite(ledPin, HIGH);
-    Serial.write("D");
+    Serial.write("L");
   } else if (buttonState1 == LOW) {
     digitalWrite(ledPin, LOW);
   }
 
   if (buttonState2 == HIGH) {
     digitalWrite(ledPin, HIGH);
-    Serial.write("R");
+    Serial.write("U");
   } else if (buttonState2 == LOW)   {
     digitalWrite(ledPin, LOW);
   }
 
   if (buttonState3 == HIGH) {
     digitalWrite(ledPin, HIGH);
-    Serial.write("L");
+    Serial.write("R");
   } else if (buttonState3 == LOW)   {
     digitalWrite(ledPin, LOW);
   } 
