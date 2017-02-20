@@ -10,10 +10,13 @@ Player 2
 NUM8, NUM6, NUM2, NUM4, ENTER, NUM6, NUM4
 */
 
+boolean twoPlayers = true;
+
 const int buttonPin0 = 0;
 const int buttonPin1 = 1;     // the number of the pushbutton pin
 const int buttonPin2 = 2;
 const int buttonPin3 = 3;
+
 const int buttonPin4 = 4;
 const int buttonPin5 = 5;     
 const int buttonPin6 = 6;
@@ -60,7 +63,6 @@ void setup() {
   pinMode(blueSelect, INPUT_PULLUP);
   pinMode(blueRight, INPUT_PULLUP);
   pinMode(blueLeft, INPUT_PULLUP);
-
   pinMode(redSelect, INPUT_PULLUP);
   pinMode(redRight, INPUT_PULLUP);
   pinMode(redLeft, INPUT_PULLUP);
@@ -110,89 +112,49 @@ void loop() {
     digitalWrite(ledPin, LOW); 
   }
   
-//  else if (blueSelectState == LOW) {
-//    digitalWrite(ledPin, HIGH);
-//    Serial.write("1");
-//  } else if (blueLeftState == LOW) {
-//    digitalWrite(ledPin, HIGH);
-//    Serial.write("2");
-//  } else if (redRightState == LOW) {
-//    digitalWrite(ledPin, HIGH);
-//    Serial.write("4");
-//  } else if (redSelectState == LOW) {
-//    digitalWrite(ledPin, HIGH);
-//    Serial.write("3");
-//  } else if (redLeftState == LOW) {
-//    digitalWrite(ledPin, HIGH);
-//    Serial.write("5");
-//  } else {
-//    digitalWrite(ledPin, LOW);
-//  }
-
-//  if (buttonState0 == HIGH) {
-//    digitalWrite(ledPin, HIGH);
-//    Keyboard.write(KEY_UP_ARROW);
-//    Serial.write("U");
-//  } else if (buttonState0 == LOW) {
-//    digitalWrite(ledPin, LOW);
-//  }
-//  
-//  if (buttonState1 == HIGH) {
-//    digitalWrite(ledPin, HIGH);
+  if (buttonState0 == HIGH) {
+    digitalWrite(ledPin, HIGH);
+    Keyboard.write(KEY_UP_ARROW);
+    Serial.write("U");
+  } else if (buttonState1 == HIGH) {
+    digitalWrite(ledPin, HIGH);
 //    Keyboard.write(KEY_RIGHT_ARROW);
-//    Serial.write("R");
-//  } else if (buttonState1 == LOW) {
-//    digitalWrite(ledPin, LOW);
-//  }
-//
-//  if (buttonState2 == HIGH) {
-//    digitalWrite(ledPin, HIGH);
+    Serial.write("R");
+  } else if (buttonState2 == HIGH) {
+    digitalWrite(ledPin, HIGH);
 //    Keyboard.write(KEY_DOWN_ARROW);
-//    Serial.write("D");
-//  } else if (buttonState2 == LOW)   {
-//    digitalWrite(ledPin, LOW);
-//  }
-//
-//  if (buttonState3 == HIGH) {
-//    digitalWrite(ledPin, HIGH);
-//    Serial.write("L");
+    Serial.write("D");
+  } else if (buttonState3 == HIGH) {
+    digitalWrite(ledPin, HIGH);
+    Serial.write("L");
 //    Keyboard.write(KEY_LEFT_ARROW);
-//  } else if (buttonState3 == LOW)   {
-//    digitalWrite(ledPin, LOW);
-//  } 
-//
-//  if (buttonState4 == HIGH) {
-//    digitalWrite(ledPin, HIGH);
-//    Keyboard.write("W");
-//    Serial.write("U2");
-//  } else if (buttonState4 == LOW) {
-//    digitalWrite(ledPin, LOW);
-//  }
-//  
-//  if (buttonState5 == HIGH) {
-//    digitalWrite(ledPin, HIGH);
-//    Keyboard.write("D");
-//    Serial.write("R2");
-//  } else if (buttonState5 == LOW) {
-//    digitalWrite(ledPin, LOW);
-//  }
-//
-//  if (buttonState6 == HIGH) {
-//    digitalWrite(ledPin, HIGH);
-//    Keyboard.write("S");
-//    Serial.write("D2");
-//  } else if (buttonState6 == LOW)   {
-//    digitalWrite(ledPin, LOW);
-//  }
-//
-//  if (buttonState7 == HIGH) {
-//    digitalWrite(ledPin, HIGH);
-//    Keyboard.write("A");
-//    Serial.write("L2");
-//  } else if (buttonState7 == LOW)   {
-//    digitalWrite(ledPin, LOW);
-//  } 
-  
+  } else {
+    digitalWrite(ledPin, LOW);
+  } 
+
+  if (twoPlayers == true) {
+     if (buttonState4 == HIGH) {
+       digitalWrite(ledPin, HIGH);
+  //   Keyboard.write(KEY_UP_ARROW);
+       Serial.write("U2");
+     } else if (buttonState5 == HIGH) {
+       digitalWrite(ledPin, HIGH);
+  //   Keyboard.write(KEY_RIGHT_ARROW);
+       Serial.write("R2");
+     } else if (buttonState6 == HIGH) {
+       digitalWrite(ledPin, HIGH);
+  //   Keyboard.write(KEY_DOWN_ARROW);
+       Serial.write("D2");
+     } else if (buttonState7 == HIGH) {
+       digitalWrite(ledPin, HIGH);
+       Serial.write("L2");
+  //   Keyboard.write(KEY_LEFT_ARROW);
+     } else {
+       digitalWrite(ledPin, LOW);
+     } 
+  }
+
+
   delay(100);
 }
 
