@@ -4,6 +4,14 @@ Dance Dance Revolution DIY Board
 # Current status 
 Created a 2P DIY Dance Mat with custom sensors. Communicates via Arduino as a keystroke. Next step is crafting the metal stabiliser bar to pull off sweet dance moves.
 
+# Video:
+[The Dance Mat works!](https://www.youtube.com/watch?v=DuG1EQtWge4)	
+
+# Blog article:
+[How I created the sensors](https://medium.com/@melhuang_/building-a-diy-dance-dance-revolution-e136265bbbfc)
+
+--
+
 # Goal 
 Create a two-person dance machine for my lounge room.
 
@@ -16,9 +24,6 @@ Create a two-person dance machine for my lounge room.
 - Electrical tape
 - Insulation foam tape
 - Copper tape with conductive adhesive
-
-# Process documented here:
-https://medium.com/@melhuang_/building-a-diy-dance-dance-revolution-e136265bbbfc
 
 # Progress history:
 - Experimented with aluminium foil circuits
