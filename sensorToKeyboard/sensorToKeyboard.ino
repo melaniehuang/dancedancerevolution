@@ -7,28 +7,26 @@ Up, Right, Down, Left, Select, SelectRight, SelectLeft
 Player 1
 KEY_UP_ARROW, KEY_RIGHT_ARROW, KEY_DOWN_ARROW, KEY_LEFT_ARROW, ENTER, KEY_RIGHT_ARROW, KEY_LEFT_ARROW
 Player 2
-NUM8, NUM6, NUM2, NUM4, ENTER, NUM6, NUM4
+W, D, S, A, X, A, D
 */
 
 boolean twoPlayers = true;
 
 const int buttonPin0 = 0;
-const int buttonPin1 = 1;     // the number of the pushbutton pin
+const int buttonPin1 = 1;     // the number of the sensor pin
 const int buttonPin2 = 2;
 const int buttonPin3 = 3;
-
 const int buttonPin4 = 4;
 const int buttonPin5 = 5;     
 const int buttonPin6 = 6;
 const int buttonPin7 = 7;
 
-const int blueSelect = A4;     // blue buttons
-const int blueRight = A3;
-const int blueLeft = A5;
-
-const int redSelect = A1;     // red buttons
-const int redRight = A0;
-const int redLeft = A2;
+const int redSelect = 9;     // red buttons
+const int redRight = 8;
+const int redLeft = 10;
+const int blueSelect = 12;     // blue buttons
+const int blueRight = 11;
+const int blueLeft = 13;
 
 const int ledPin =  13;      // the number of the LED pin
 int buttonState0 = LOW; 
@@ -79,82 +77,86 @@ void loop() {
   buttonState5 = digitalRead(buttonPin5);
   buttonState6 = digitalRead(buttonPin6);
   buttonState7 = digitalRead(buttonPin7);
-  
   blueSelectState = digitalRead(blueSelect);
   blueRightState = digitalRead(blueRight);
   blueLeftState = digitalRead(blueLeft);
-  
   redSelectState = digitalRead(redSelect);
   redRightState = digitalRead(redRight);
   redLeftState = digitalRead(redLeft);
 
-  //If you don't have two prongs on your microswitch you may have to swap the low and high for the ledPin
-  
   if (redSelectState == LOW) {
     digitalWrite(ledPin, HIGH);
-    Serial.write("1");
-  } else if (redRightState == LOW) {
-    digitalWrite(ledPin, HIGH);
-    Serial.write("0");
-  } else if (redLeftState == LOW) {
-    digitalWrite(ledPin, HIGH);
-    Serial.write("2");    
-  } else if (blueSelectState == LOW) {
-    digitalWrite(ledPin, HIGH);
-    Serial.write("4");
-  } else if (blueRightState == LOW) {
-    digitalWrite(ledPin, HIGH);
-    Serial.write("3");
-  } else if (blueLeftState == LOW) {
-    digitalWrite(ledPin, HIGH);
-    Serial.write("5");
-  } else {
-    digitalWrite(ledPin, LOW); 
+    Keyboard.write(50);
   }
   
+  if (redLeftState == LOW) {
+    digitalWrite(ledPin, HIGH);
+    Keyboard.write(49);
+  } 
+  
+  if (redRightState == LOW) {
+    digitalWrite(ledPin, HIGH);
+    Keyboard.write(51);    
+  } 
+  
+  if (blueSelectState == LOW) {
+    digitalWrite(ledPin, HIGH);
+    Keyboard.write(53);
+  } 
+  
+  if (blueLeftState == LOW) {
+    digitalWrite(ledPin, HIGH);
+    Keyboard.write(52);
+  } 
+  
+  if (blueRightState == LOW) {
+    digitalWrite(ledPin, HIGH);
+    Keyboard.write(54);
+  }
+
+  //Red - Player 1
   if (buttonState0 == HIGH) {
     digitalWrite(ledPin, HIGH);
     Keyboard.write(KEY_UP_ARROW);
-    Serial.write("U");
-  } else if (buttonState1 == HIGH) {
+  }
+  
+  if (buttonState1 == HIGH) {
     digitalWrite(ledPin, HIGH);
-//    Keyboard.write(KEY_RIGHT_ARROW);
-    Serial.write("R");
-  } else if (buttonState2 == HIGH) {
-    digitalWrite(ledPin, HIGH);
-//    Keyboard.write(KEY_DOWN_ARROW);
-    Serial.write("D");
-  } else if (buttonState3 == HIGH) {
-    digitalWrite(ledPin, HIGH);
-    Serial.write("L");
-//    Keyboard.write(KEY_LEFT_ARROW);
-  } else {
-    digitalWrite(ledPin, LOW);
+    Keyboard.write(KEY_RIGHT_ARROW);
   } 
+  
+  if (buttonState2 == HIGH) {
+    digitalWrite(ledPin, HIGH);
+    Keyboard.write(KEY_DOWN_ARROW);
+  } 
+  
+  if (buttonState3 == HIGH) {
+    digitalWrite(ledPin, HIGH);
+    Keyboard.write(KEY_LEFT_ARROW);
+  }
 
+  //Blue - Player 2
   if (twoPlayers == true) {
      if (buttonState4 == HIGH) {
        digitalWrite(ledPin, HIGH);
-  //   Keyboard.write(KEY_UP_ARROW);
-       Serial.write("U2");
-     } else if (buttonState5 == HIGH) {
+       Keyboard.write("W");
+     }
+     
+     if (buttonState5 == HIGH) {
        digitalWrite(ledPin, HIGH);
-  //   Keyboard.write(KEY_RIGHT_ARROW);
-       Serial.write("R2");
-     } else if (buttonState6 == HIGH) {
+       Keyboard.write("D");
+     }  
+     
+     if (buttonState6 == HIGH) {
        digitalWrite(ledPin, HIGH);
-  //   Keyboard.write(KEY_DOWN_ARROW);
-       Serial.write("D2");
-     } else if (buttonState7 == HIGH) {
-       digitalWrite(ledPin, HIGH);
-       Serial.write("L2");
-  //   Keyboard.write(KEY_LEFT_ARROW);
-     } else {
-       digitalWrite(ledPin, LOW);
+       Keyboard.write("S");
      } 
+     
+     if (buttonState7 == HIGH) {
+       digitalWrite(ledPin, HIGH);
+       Keyboard.write("A");
+     }
   }
-
-
-  delay(100);
 }
+
 

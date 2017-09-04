@@ -2,25 +2,27 @@
 Dance Dance Revolution DIY Board
 
 # Current status 
-Created one arrow prototype as a proof on concept, now working on refining both the build of the individual arrows and removing the Arduino to replace it with an I-PAC.
+Created a 2P DIY Dance Mat with custom sensors. Communicates via Arduino as a keystroke. Next step is crafting the metal stabiliser bar to pull off sweet dance moves.
 
 # Goal 
-Create a two-person dance machine for the arcade machine Bunts made.
+Create a two-person dance machine for my lounge room.
 
 # Ingredients for the prototype:
-- Arduino UNO
+- Arduino Leonardo
 - Processing
 - Wires
 - MDF
 - Aluminium Bars
 - Electrical tape
-- Insulation foam
+- Insulation foam tape
 - Copper tape with conductive adhesive
 
-[Videos/photos of progress](https://goo.gl/photos/AaG46b4niG6Ugnum6)
+# Process documented here:
+https://medium.com/@melhuang_/building-a-diy-dance-dance-revolution-e136265bbbfc
 
-# Progress made:
+# Progress history:
 - Experimented with aluminium foil circuits
 - Ditched it for sensors that mimic that of actual metal dance machines
 - Prototyped a sensor to send signal
 - Prototyped an arrow containing 4 sensors wired together, sending a signal to the Arduino serial and Processing
+- Made 2 x dance mats, wired and communicating to StepMania
